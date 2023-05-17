@@ -19,8 +19,9 @@ app.get('/', (req, res) => {
     image: 'https://movie-list.alphacamp.io/posters/c9XxwwhPHdaImA2f1WEfEsbhaFB.jpg',
     title: 'Jurassic World: Fallen Kingdom'
   }
+  const numberList = [1, 2, 3, 4, 5, 6, 7, 8]
   // past the movie data into partial template
-  res.render('index', {movie: movieOne})
+  res.render('index', {movie: movieOne, numbers: numberList})
 })
 
 // The sever is listening and running at http://localhost:3000

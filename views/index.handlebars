@@ -1,5 +1,12 @@
 <!-- ./views/index.handlebars -->
 <div class="container mt-5">
+  {{#each numbers}}
+    <span>----</span>
+      <div class="d-inline-flex align-items-center justify-content-center bg-info text-white rounded-circle" style="width: 100px; height: 100px;">
+        {{this}}  
+      </div>
+    <span>----</span>
+  {{/each}}
   <!-- search bar -->
   <div class="row" id="search-bar">
     <div class="col-12">
