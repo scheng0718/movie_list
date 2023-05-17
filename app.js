@@ -14,7 +14,13 @@ app.use(express.static('public'))
 
 // Set up route and render the index page to browser
 app.get('/', (req, res) => {
-  res.render('index')
+  const movieOne = {
+    id: 1,
+    image: 'https://movie-list.alphacamp.io/posters/c9XxwwhPHdaImA2f1WEfEsbhaFB.jpg',
+    title: 'Jurassic World: Fallen Kingdom'
+  }
+  // past the movie data into partial template
+  res.render('index', {movie: movieOne})
 })
 
 // The sever is listening and running at http://localhost:3000
