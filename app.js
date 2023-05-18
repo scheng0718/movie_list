@@ -19,6 +19,16 @@ app.get('/', (req, res) => {
   res.render('index', {movie: movieList.results})
 })
 
+// Set up a new route for search bar
+app.get('/search', (req, res) => {
+  console.log('req.query.keyword is ', req.query.keyword)
+  const keyword = req.query.keyword
+  const movies = movieList.results.filter(movie => {
+    return movie.title.toLowerCase().includes(keyword.toLowerCase())
+  })
+  res.render('index', {movie: movies, keyword: keyword})
+})
+
 // set up new route for show page with params
 app.get('/movies/:movie', (req, res) => {
   const movie = movieList.results.find(movie => movie.id.toString() === req.params.movie)
