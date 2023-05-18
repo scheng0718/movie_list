@@ -21,7 +21,7 @@ app.get('/', (req, res) => {
 
 // set up new route for show page with params
 app.get('/movies/:movie', (req, res) => {
-  const movie = movieList.results.find(movie => movie.id === Number(req.params.movie))
+  const movie = movieList.results.find(movie => movie.id.toString() === req.params.movie)
   res.render('show', {movie: movie})
 })
 
