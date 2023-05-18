@@ -19,17 +19,10 @@ app.get('/', (req, res) => {
   res.render('index', {movie: movieList.results})
 })
 
-app.get('/movies/1', (req, res) => {
-  const movieOne = {
-    id: 1,
-    titile: 'Jurassic World: Fallen Kingdom',
-    image: 'c9XxwwhPHdaImA2f1WEfEsbhaFB.jpg',
-    release_date: '2018-06-06',
-    description: `Several years after the demise of Jurassic World, a volcanic eruption threatens the remaining dinosaurs on the
-        island of Isla Nublar. Claire Dearing, the former park manager and founder of the Dinosaur Protection Group,
-        recruits Owen Grady to help prevent the extinction of the dinosaurs once again.`
-  }
-  res.render('show', {movie: movieOne})
+// set up new route for show page with params
+app.get('/movies/:movie', (req, res) => {
+  const movie = movieList.results.find(movie => movie.id === Number(req.params.movie))
+  res.render('show', {movie: movie})
 })
 
 // The sever is listening and running at http://localhost:3000
